@@ -10,7 +10,7 @@ pub mod argparser {
 
     fn print_help_message() {
         let help_msg = format!(
-            "{}\n\n{}\n{}\n{}\n\n{}\n{}\n{}\n\n{}\n{}\n{}\n{}\n{}\n{}\n{}",
+            "{}\n\n{}\n{}\n{}\n\n{}\n{}\n{}\n\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n\n",
             "Huffman Enconding Compression Tool ",
             "USAGE: ",
             "  rust_huffman_compression --interactive",
@@ -36,7 +36,7 @@ pub mod argparser {
 
     fn get_arg_value(args: &Vec<String>, arg: &String) -> String {
         let index = self::get_arg_index(args, arg).unwrap();
-        let error_msg = &format!("Missing argument value for argument {}", arg);
+        let error_msg = &format!("Missing argument value for argument {}.", arg);
         args.get(index + 1).expect(error_msg).clone()
     }
 
@@ -100,11 +100,11 @@ pub mod argparser {
         }
 
         if config.input_filename.len() == 0 {
-            panic!("Input filename is required")
+            panic!("Input filename is required.")
         }
 
         if config.output_filename.len() == 0 {
-            config.output_filename = format!("{}{}", config.input_filename, ".hfm");
+            config.output_filename = format!("{}{}", config.input_filename, ".hfmc");
         }
 
         config
